@@ -1,20 +1,14 @@
 import { Pixel } from './pixel'
 
 /**
- * Class representing a bitmap.
- * @class
+ * Bitmap class which creates Bitmaps and saves globally
  */
 export class Bitmap {
   private lineSize: number;
   private columnSize: number;
   private pixels: Pixel[];
 
-  /**
-   * @constructor Create a bitmap.
-   * @param {number} lineSize - The size of lines.
-   * @param {number} columnSize - The size of columns.
-   * @param {Pixel[]} pixels - The pixels that bitmap contains.
-   */
+  
   constructor (lineSize: number, columnSize: number, pixels: Pixel[]) {
     this.lineSize = lineSize
     this.columnSize = columnSize
@@ -22,49 +16,33 @@ export class Bitmap {
   }
 
   /**
-   * Returns the line size of the bitmap.
-   *
-   * @returns {number} lineSize - An integer
-   *
-   * @example
-   *     bitmap.getLineSize();
+   * function to get the linesize
+   * @returns linesize of the bitmap
    */
   public getLineSize (): number {
     return this.lineSize
   }
 
   /**
-   * Returns the column size of the bitmap.
-   *
-   * @returns {number} columnSize - An integer
-   *
-   * @example
-   *     bitmap.getColumnSize();
+   * function to get the columnsize of given bitmap
+   * @returns columnsize of the bitmap
    */
   public getColumnSize (): number {
     return this.columnSize
   }
 
   /**
-   * Returns the pixels that bitmap contains.
-   *
-   * @returns {Pixel[]} pixels - An array of pixels
-   *
-   * @example
-   *     bitmap.getPixels();
+   * function to get saved or given pixels data
+   * @returns given pixels array 
    */
   public getPixels (): Pixel[] {
     return this.pixels
   }
 
   /**
-   * Sets the color of given pixel that bitmap contains.
-   *
-   * @param {Pixel} pixel - A pixel object
-   * @param {number} color - A color value
-   *
-   * @example
-   *     bitmap.setPixelColor(pixel, 1);
+   * function to set pixel color
+   * @param pixel pixel which needs to be update
+   * @param color color which needs to be update
    */
   public setPixelColor (pixel: Pixel, color: number): void {
     const foundPixelIndex = this.pixels.findIndex((p) => p.getLineIndex() === pixel.getLineIndex() && p.getColumnIndex() === pixel.getColumnIndex())

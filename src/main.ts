@@ -1,17 +1,24 @@
 import readline from 'readline'
 import { Common } from './common'
-import { Bitmap } from './models/bitmap'
-import { Pixel } from './models/pixel'
 
+/**
+ * Entry point to the project
+ */
 function main (): void {
   const commonFunctions = new Common()
 
+  /**
+   * creating readline interface for the command line parse
+   */
   const rl = readline.createInterface({
     input: process.stdin,
     output: process.stdout,
     terminal: false
   })
 
+  /**
+   * listner to the command line values and parsing it through the saveBitmapValues function
+   */
   rl.on('line', (line) => {
     try {
       commonFunctions.saveBitmapValues(line.trim())
@@ -20,6 +27,9 @@ function main (): void {
     }
   })
 
+  /**
+   * Listner that calls in the end of command line input to process the bitmap
+   */
   rl.on('close', () => {
     const bitmaps = commonFunctions.createBitmap()
 
@@ -39,6 +49,9 @@ function main (): void {
   })
 }
 
+/**
+ * calling main function as the entry point to the project
+ */
 main();
 
 

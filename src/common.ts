@@ -1,12 +1,18 @@
 import { Bitmap } from './models/bitmap'
 import { Pixel } from './models/pixel'
 
+/**
+ * Create bitmap like structure to store given data
+ */
 interface BitmapDescription {
   rows: number;
   columns: number;
   pixels: string;
 }
 
+/**
+ * Common functions class
+ */
 export class Common {
   public bitmapDescriptions: Array<BitmapDescription>;
   public numberOfTestCases: number | undefined;
@@ -15,8 +21,17 @@ export class Common {
     this.bitmapDescriptions = []
   }
 
+  /**
+   * Function to parse command lines one by one
+   * @param line single command line entered or provided
+   * @returns 
+   */
   public saveBitmapValues (line: string): null {
+
+    // checking if first command line if not a number and with given constraints 
     if (!this.numberOfTestCases) {
+
+      // checking if the testcases is in between 1 to 1000
       if (!(Number(line) >= 1 && Number(line) <= 1000)) {
         throw 'Invalid number of test cases!'
       }
@@ -24,10 +39,12 @@ export class Common {
       return null
     }
 
+    // returning null if the line is empty
     if (line === '') {
       return null
     }
 
+    // parsing actuall rows and columns for the bitmap
     if (line.includes(' ')) {
       const [rows, columns] = line.split(' ')
       if (
@@ -44,6 +61,7 @@ export class Common {
       this.bitmapDescriptions.push(newBitmapDescription)
       return null
     } else {
+      // checking if its first line of the bitmap
       if (this.bitmapDescriptions[this.bitmapDescriptions.length - 1].pixels === '') {
         this.bitmapDescriptions[this.bitmapDescriptions.length - 1].pixels = line
       } else {
@@ -53,6 +71,10 @@ export class Common {
     }
   }
 
+  /**
+   * Function that saves all the given values in the bitmaps structure
+   * @returns created bitmap like structure
+   */
   public createBitmap (): Bitmap[] {
     const bitmaps: Bitmap[] = []
     this.bitmapDescriptions.forEach((bitmapDescription: BitmapDescription) => {
@@ -71,7 +93,15 @@ export class Common {
     return bitmaps
   }
 
+  /**
+   * Function which iterates on all the pixels and calculate the distance for each pixel to nearest white pixel
+   * @param bitmap created bitmap with the given values
+   * @param pixel current pixel
+   * @returns shorted distance to white pixel from the given pixel
+   */
   public distanceCalculate (bitmap: Bitmap, pixel: Pixel): number {
+
+    // checking if the given pixel is already white then returning 0
     if (pixel.getColor() === 1) {
       return 0
     }

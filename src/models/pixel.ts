@@ -1,18 +1,12 @@
 /**
- * Class representing a pixel.
- * @class
+ * Pixel class which creates pixel like structure
  */
 export class Pixel {
   private i: number;
   private j: number;
   private color: number;
 
-  /**
-   * Create a pixel.
-   * @param {number} i - i-axis index of the pixel.
-   * @param {number} j - j-axis index of the pixel.
-   * @param {number} color - color of the pixel.
-   */
+ 
   constructor (i: number, j: number, color: number) {
     this.i = i
     this.j = j
@@ -20,48 +14,32 @@ export class Pixel {
   }
 
   /**
-   * Returns the line index of the pixel.
-   *
-   * @returns {number} i - An integer
-   *
-   * @example
-   *     pixel.getLineIndex();
+   * 
+   * @returns get current line index
    */
   public getLineIndex (): number {
     return this.i
   }
 
   /**
-   * Returns the column index of the pixel.
-   *
-   * @returns {number} j - An integer
-   *
-   * @example
-   *     pixel.getColumnIndex();
+   * 
+   * @returns get current line index
    */
   public getColumnIndex (): number {
     return this.j
   }
 
   /**
-   * Returns the color of the pixel.
-   *
-   * @returns {number} j - An integer
-   *
-   * @example
-   *     pixel.getColor();
+   * 
+   * @returns current pixels color
    */
   public getColor (): number {
     return this.color
   }
 
   /**
-   * Sets the color of the pixel.
-   *
-   * @param {number} color - An integer
-   *
-   * @example
-   *     pixel.setColor(1);
+   * 
+   * @returns sets given color to the pixel
    */
   public setColor (color: number): void {
     this.color = color

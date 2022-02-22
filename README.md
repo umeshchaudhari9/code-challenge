@@ -9,8 +9,10 @@ black, but at least one is white. The pixel in i-th line and j-th column is call
 distance between two pixels p1=(i1,j1) and p2=(i2,j2) is defined as d(p1,p2)=|i1-i2|+|j1-j2|.
 Write a program which:
 
-● reads the description of the bitmap from the standard input;
+● Reads the description of the bitmap from the standard input
+
 ● for each pixel, computes the distance to the nearest white;
+
 ● writes the results to the standard output.
 
 # Input
@@ -26,16 +28,24 @@ In the i-th line for each test case, 1<=i<=n, there should be written m integers
 separated by single spaces, where f(i,j) is the distance from the pixel (i,j) to the nearest white
 pixel.
 
-Input:
+#Input:
+
 1
+
 3 4
+
 0001
+
 0011
+
 0110
 
-Output
+#Output
+
 3 2 1 0
+
 2 1 0 0
+
 1 0 0 1
 
 
@@ -75,3 +85,16 @@ You can run the program with:
 ```
 cat input.txt | npm run start
 ```
+
+# Working
+
+If we run the program by running the command it should take the inputs from the input.txt file and should return the output in 
+the following format
+
+Output:
+
+3 2 1 0
+
+2 1 0 0
+
+1 0 0 1
